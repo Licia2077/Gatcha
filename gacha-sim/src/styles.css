@@ -1,227 +1,251 @@
-/* 기본 설정 */
-* {
-    box-sizing: border-box;
-}
-
+/* ===================== */
+/* 전체 레이아웃 & 배경  */
+/* ===================== */
 body {
-    margin: 0;
-    font-family: "Noto Sans KR", sans-serif;
-    /* ✅ 은은한 그라데이션 */
-    background: linear-gradient(180deg, #f9f9fb 0%, #f1f1f5 100%);
-    color: #111;
-    min-height: 100vh;
+  margin: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  background: linear-gradient(135deg, #f9fbff, #e9ecff);
+  /* 은은한 단일 톤 */
+  color: #333;
 }
 
-/* 앱 컨테이너 */
 .app {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* 헤더 */
+/* ===================== */
+/* 헤더                  */
+/* ===================== */
 .header {
-    text-align: center;
-    margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .header h1 {
-    margin: 0 0 6px;
-    font-size: 32px;
-    font-weight: 700;
-    background: linear-gradient(90deg, #4c5bff, #7f5bff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4c5bff;
 }
 
 .header p {
-    margin: 0;
-    color: #666;
+  font-size: 1rem;
+  color: #666;
+  margin-top: 6px;
 }
 
-/* 탭 버튼 */
+/* ===================== */
+/* 상단 탭 버튼          */
+/* ===================== */
 .tabs {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin: 16px 0 8px;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .tabs button {
-    padding: 10px 14px;
-    border: 1px solid #d0d3ff;
-    background: #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .tabs button:hover {
-    background: #eef0ff;
+  background: #f0f2ff;
 }
 
-.tabs button.on {
-    background: #4c5bff;
-    color: #fff;
-    border-color: #4c5bff;
+.tabs .on {
+  background: #4c5bff;
+  color: white;
+  border-color: #4c5bff;
 }
 
-/* 메인 박스 */
-.page {
-    background: #fff;
-    border: 1px solid #e6e8ff;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
-    animation: fadein 0.4s ease;
-}
-
-@keyframes fadein {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* 홈 메뉴 */
-.home .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
-
-@media (max-width: 860px) {
-    .home .grid {
-        grid-template-columns: 1fr;
-    }
+/* ===================== */
+/* 카드 레이아웃         */
+/* ===================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
 }
 
 .card {
-    border: 1px solid #e6e8ff;
-    border-radius: 16px;
-    padding: 20px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    background: linear-gradient(145deg, #fafbff, #f4f6ff);
-    text-align: center;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card .icon {
-    font-size: 48px;
+  font-size: 2rem;
+  margin-bottom: 10px;
 }
 
-.card h3 {
-    margin: 10px 0 6px;
-    font-size: 20px;
+/* ===================== */
+/* 공통 섹션 박스        */
+/* ===================== */
+.section {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
-/* 버튼 스타일 */
-.btn {
-    padding: 10px 16px;
-    border: 0;
-    border-radius: 12px;
-    background: #4c5bff;
-    color: #fff;
-    cursor: pointer;
-    transition: all 0.2s ease;
+/* ===================== */
+/* 버튼                  */
+/* ===================== */
+button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
 }
 
-.btn:hover {
-    background: #3b49cc;
-    transform: scale(1.05);
+button:hover {
+  opacity: 0.9;
 }
 
-.btn.ghost {
-    background: #eef0ff;
-    color: #2b2f8a;
+button.primary {
+  background: #4c5bff;
+  color: white;
 }
 
-.btn.ghost:hover {
-    background: #d6d9ff;
+button.danger {
+  background: #ff4c4c;
+  color: white;
 }
 
-/* 배지 */
-.badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: #eef0ff;
-    color: #2b2f8a;
-    border: 1px solid #d0d3ff;
-    font-size: 13px;
-    font-weight: 600;
+/* ===================== */
+/* 테이블                */
+/* ===================== */
+.table-wrap {
+  overflow-x: auto;
 }
 
-/* 카드팩 */
-.list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
-    margin-top: 14px;
+.eff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.card-slot {
-    border-radius: 12px;
-    padding: 12px;
-    text-align: center;
-    background: #fff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease;
+.eff-table th,
+.eff-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
 }
 
-.card-slot:hover {
-    transform: scale(1.05);
+.eff-table th {
+  background: #4c5bff;
+  color: white;
 }
 
-.card-slot .rarity {
-    font-size: 12px;
-    opacity: .75;
+.eff-table tr:nth-child(even) {
+  background: #f8f9ff;
 }
 
-.card-slot .name {
-    font-weight: 700;
-    margin-top: 4px;
+/* ===================== */
+/* 포켓몬 카드팩 결과    */
+/* ===================== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
 }
 
-/* 결과 */
-.result {
-    margin-top: 14px;
-    padding: 14px;
-    border-radius: 12px;
-    background: #f7f8ff;
-    border: 1px solid #e6e8ff;
-    font-size: 14px;
-    line-height: 1.5;
+.poke-card {
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 푸터 */
+.poke-card.일반 {
+  border: 2px solid #ccc;
+  color: #444;
+}
+
+.poke-card.희귀 {
+  border: 2px solid #4c5bff;
+  color: #4c5bff;
+}
+
+.poke-card.초희귀 {
+  border: 2px solid gold;
+  color: goldenrod;
+  font-weight: 700;
+  background: #fffbea;
+}
+
+/* ===================== */
+/* footer                */
+/* ===================== */
 .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 16px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
 }
 
-.footer button {
-    border: 1px solid #e6e8ff;
-    background: #fff;
-    padding: 8px 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.2s;
+/* 포켓몬 카드팩 결과 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
 }
 
-.footer button:hover {
-    background: #f0f2ff;
+.poke-card {
+  border-radius: 10px;
+  padding: 12px;
+  text-align: center;
+  font-weight: 600;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.poke-card img.poke-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.poke-card.일반 {
+  border: 2px solid #ccc;
+  color: #444;
+}
+
+.poke-card.희귀 {
+  border: 2px solid #4c5bff;
+  color: #4c5bff;
+}
+
+.poke-card.초희귀 {
+  border: 2px solid gold;
+  color: goldenrod;
+  font-weight: 700;
+  background: #fffbea;
 }
