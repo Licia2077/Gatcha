@@ -1,0 +1,227 @@
+/* 기본 설정 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Noto Sans KR", sans-serif;
+    /* ✅ 은은한 그라데이션 */
+    background: linear-gradient(180deg, #f9f9fb 0%, #f1f1f5 100%);
+    color: #111;
+    min-height: 100vh;
+}
+
+/* 앱 컨테이너 */
+.app {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* 헤더 */
+.header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.header h1 {
+    margin: 0 0 6px;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #4c5bff, #7f5bff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header p {
+    margin: 0;
+    color: #666;
+}
+
+/* 탭 버튼 */
+.tabs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 16px 0 8px;
+    flex-wrap: wrap;
+}
+
+.tabs button {
+    padding: 10px 14px;
+    border: 1px solid #d0d3ff;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tabs button:hover {
+    background: #eef0ff;
+}
+
+.tabs button.on {
+    background: #4c5bff;
+    color: #fff;
+    border-color: #4c5bff;
+}
+
+/* 메인 박스 */
+.page {
+    background: #fff;
+    border: 1px solid #e6e8ff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    animation: fadein 0.4s ease;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 홈 메뉴 */
+.home .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+@media (max-width: 860px) {
+    .home .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    border: 1px solid #e6e8ff;
+    border-radius: 16px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: linear-gradient(145deg, #fafbff, #f4f6ff);
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card .icon {
+    font-size: 48px;
+}
+
+.card h3 {
+    margin: 10px 0 6px;
+    font-size: 20px;
+}
+
+/* 버튼 스타일 */
+.btn {
+    padding: 10px 16px;
+    border: 0;
+    border-radius: 12px;
+    background: #4c5bff;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: #3b49cc;
+    transform: scale(1.05);
+}
+
+.btn.ghost {
+    background: #eef0ff;
+    color: #2b2f8a;
+}
+
+.btn.ghost:hover {
+    background: #d6d9ff;
+}
+
+/* 배지 */
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: #eef0ff;
+    color: #2b2f8a;
+    border: 1px solid #d0d3ff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* 카드팩 */
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.card-slot {
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.card-slot:hover {
+    transform: scale(1.05);
+}
+
+.card-slot .rarity {
+    font-size: 12px;
+    opacity: .75;
+}
+
+.card-slot .name {
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* 결과 */
+.result {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    background: #f7f8ff;
+    border: 1px solid #e6e8ff;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 푸터 */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.footer button {
+    border: 1px solid #e6e8ff;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.footer button:hover {
+    background: #f0f2ff;
+}
