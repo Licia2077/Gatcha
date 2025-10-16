@@ -16,7 +16,7 @@ export default function EfficiencyTable() {
         <table className="eff-table">
           <thead>
             <tr>
-              <th>게임</th><th>★5 확률</th><th>천장</th><th>소프트 천장</th><th>보장</th><th>효율 요약</th>
+              <th>게임</th><th>★5 확률</th><th>천장</th><th>반천장</th><th>보장</th><th>효율 요약</th>
             </tr>
           </thead>
           <tbody>

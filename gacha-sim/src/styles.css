@@ -8,12 +8,14 @@ body {
   background-size: 400% 400%;
   animation: gradientFlow 18s ease infinite;
   color: #333;
+  overflow-x: hidden;
 }
 
 .app {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
 }
 
 /* ===================== */
@@ -26,7 +28,7 @@ body {
 }
 
 .header h1 {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #4c5bff;
 }
@@ -35,6 +37,23 @@ body {
   font-size: 1rem;
   color: #666;
   margin-top: 6px;
+}
+
+/* 최고 기록 표시 */
+.records {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.records p {
+  background: #f8f9ff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* ===================== */
@@ -185,30 +204,7 @@ button.danger {
   animation: flipIn 0.6s ease forwards;
   transform-style: preserve-3d;
   opacity: 0;
-}
-
-.poke-card:nth-child(1) {
-  animation-delay: 0.1s;
-}
-
-.poke-card:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.poke-card:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.poke-card:nth-child(4) {
-  animation-delay: 0.4s;
-}
-
-.poke-card:nth-child(5) {
-  animation-delay: 0.5s;
-}
-
-.poke-card:nth-child(6) {
-  animation-delay: 0.6s;
+  position: relative;
 }
 
 .poke-card img.poke-img {
@@ -235,8 +231,34 @@ button.danger {
   background: #fffbea;
 }
 
+/* 카드 반짝 효과 */
+.poke-card.희귀::after,
+.poke-card.초희귀::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.poke-card.희귀::after {
+  background: linear-gradient(45deg, #4c5bff, transparent);
+  animation: glow 1.5s infinite alternate;
+}
+
+.poke-card.초희귀::after {
+  background: linear-gradient(45deg, gold, transparent);
+  animation: glow 1.5s infinite alternate;
+  opacity: 0.9;
+}
+
 /* ===================== */
-/* 로비 화면             */
+/* 로비 화면 (3x2, 가운데 정렬) */
 /* ===================== */
 .lobby {
   text-align: center;
@@ -257,33 +279,33 @@ button.danger {
 
 .lobby-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 350px);
+  gap: 24px;
+  justify-content: center;
   margin-top: 20px;
 }
 
 .lobby-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 30px 20px;
+  width: 350px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   animation: slideUp 0.8s ease forwards;
   opacity: 0;
 }
 
-.lobby-card:nth-child(1) {
-  animation-delay: 0.2s;
-}
-
-.lobby-card:nth-child(2) {
-  animation-delay: 0.4s;
-}
-
-.lobby-card:nth-child(3) {
-  animation-delay: 0.6s;
+/* ✅ 링크 카드 기본 스타일 제거 */
+.lobby-card.link-card {
+  text-decoration: none;
+  color: inherit;
 }
 
 .lobby-card:hover {
@@ -296,11 +318,28 @@ button.danger {
 /* ===================== */
 .success {
   animation: successGlow 1s ease;
+  position: relative;
 }
 
 .fail {
   animation: shake 0.5s ease;
   border: 2px solid #ff4c4c !important;
+  position: relative;
+}
+
+.result-flash {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4c5bff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: flashFade 1.2s ease;
+}
+
+.result-flash.fail {
+  color: #ff4c4c;
 }
 
 /* ===================== */
@@ -397,5 +436,32 @@ button.danger {
 
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    opacity: 0.3;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes flashFade {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
   }
 }
