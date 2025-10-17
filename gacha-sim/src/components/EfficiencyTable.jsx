@@ -20,7 +20,7 @@ export default function EfficiencyTable() {
             </tr>
           </thead>
           <tbody>
-            {data.map((d,i)=>(
+            {data.map((d, i) => (
               <tr key={i}>
                 <td>{d.game}</td>
                 <td>{d.rate5}</td>

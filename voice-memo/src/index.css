@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+/* 전체 화면 중앙 정렬 */
+body {
+  display: flex;
+  justify-content: center;
+  /* 가로 중앙 */
+  align-items: center;
+  /* 세로 중앙 */
+  background: linear-gradient(135deg, #a78bfa, #ec4899, #f43f5e);
+  background-size: 200% 200%;
+  animation: gradientFlow 12s ease infinite;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 배경 애니메이션 */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 100% 100%;
+  }
+
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* 카드 */
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+
+  /* 중앙에서 조금 더 아래로 */
+  transform: translateY(300px);
+}
+
+/* 버튼 */
+.btn {
+  @apply px-6 py-2 font-bold rounded-lg shadow-md transition;
+}
+
+.btn-green {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.btn-red {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+}
+
+.btn-blue {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  color: white;
+}
+
+.btn-green:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.btn-red:hover {
+  background: linear-gradient(135deg, #dc2626, #991b1b);
+}
+
+.btn-blue:hover {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+
+/* 메모 카드 */
+.memo-item {
+  @apply bg-white/90 backdrop-blur rounded-xl shadow-md p-4 flex justify-between items-start;
+  border-left: 4px solid #8b5cf6;
+  transition: transform 0.2s ease;
+}
+
+.memo-item:hover {
+  transform: scale(1.02);
+}
