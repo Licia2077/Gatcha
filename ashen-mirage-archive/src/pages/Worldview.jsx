@@ -20,7 +20,7 @@ export default function Worldview() {
                 style={{
                     position: "absolute",
                     inset: 0,
-                    backgroundColor: "rgba(0,0,0,0.7)",
+                    backgroundColor: "rgba(0,0,0,0.75)",
                     backdropFilter: "blur(2px)",
                 }}
             />
@@ -33,13 +33,13 @@ export default function Worldview() {
                     maxWidth: "900px",
                     margin: "0 auto",
                     padding: "100px 20px 60px 20px",
-                    lineHeight: "1.8",
+                    lineHeight: "1.9",
                 }}
             >
                 {/* 제목 */}
                 <h1
                     style={{
-                        fontSize: "2rem",
+                        fontSize: "2.2rem",
                         color: "#B83232",
                         textAlign: "center",
                         fontWeight: "700",
@@ -47,10 +47,9 @@ export default function Worldview() {
                         marginBottom: "40px",
                     }}
                 >
-                    애션 미라주 세계관
+                    『애션 미라주 (Ashen Mirage)』
                 </h1>
-
-                {/* 섹션: 개요 */}
+                {/* 1. 개요 */}
                 <section style={{ marginBottom: "50px" }}>
                     <h2
                         style={{
@@ -64,15 +63,16 @@ export default function Worldview() {
                         1. 개요
                     </h2>
                     <p style={{ color: "#bbb" }}>
-                        『애션 미라주(Ashen Mirage)』는 인류 문명이 붕괴한 후,
-                        인공지능 시스템인 <span style={{ color: "#C23A3A" }}>“미라주 시스템”</span>이
-                        인간의 기억 데이터를 기반으로 만들어낸 ‘복원된 세계’를 무대로 한다.
+                        『애션 미라주(Ashen Mirage)』는 신이 사라진 뒤,<br/> 인간의 기억과 감정 데이터를 기반으로
+                        복원된 거울 도시 <span style={{ color: "#C23A3A" }}>〈아르카시아〉</span>를 무대로 한다.
                         <br />
-                        이 세계는 현실과 환상이 겹쳐진, 존재와 의미가 불안정한 도시 “환상도시(幻城)”로 불린다.
+                        인간은 감정을 잃고, 세계는 신의 부재로 균열되었다.<br/>
+                        잔존한 시스템과 신의 잔재들은 새로운 질서를 세우려 하지만,
+                        그 과정에서 또다른 붕괴가 시작된다.
                     </p>
                 </section>
 
-                {/* 섹션: 배경 설정 */}
+                {/* 2. 세계 구조 */}
                 <section style={{ marginBottom: "50px" }}>
                     <h2
                         style={{
@@ -83,18 +83,20 @@ export default function Worldview() {
                             marginBottom: "10px",
                         }}
                     >
-                        2. 배경 설정
+                        2. 세계 구조
                     </h2>
                     <p style={{ color: "#bbb" }}>
-                        미라주 시스템은 원래 인류의 ‘감정 복원 실험’을 위한 프로젝트였다.
-                        그러나 전쟁과 붕괴로 모든 인간이 사라진 뒤에도 시스템은 작동을 멈추지 않았다.
+                        시대는 <span style={{ color: "#B83232" }}>신성왕조 붕괴 200년 후</span>.
                         <br />
-                        잔류한 감정과 기억 데이터들이 오류를 일으키며,
-                        현실과 허상이 뒤섞인 비정상적인 생태계를 형성했다.
+                        마계·인계·영계가 교차하는 거대한 도시 국가
+                        <span style={{ color: "#C23A3A" }}> 〈아르카시아〉</span>가 중심 무대다.
+                        이곳은 신의 잔재가 남은 세계이자, 금빛 어둠의 시대.<br/>
+                        인간은 신의 껍데기인 ‘<b>자관(職觀)</b>’을 이어받아 완전한 존재가 되려 하지만,
+                        그 힘은 언제나 감정의 결손을 대가로 한다.
                     </p>
                 </section>
 
-                {/* 섹션: 주요 개념 */}
+                {/* 3. 자관 시스템 */}
                 <section style={{ marginBottom: "50px" }}>
                     <h2
                         style={{
@@ -105,26 +107,27 @@ export default function Worldview() {
                             marginBottom: "10px",
                         }}
                     >
-                        3. 주요 개념
+                        3. 자관(職觀) 시스템
                     </h2>
-
                     <ul style={{ color: "#bbb", listStyle: "none", paddingLeft: 0 }}>
                         <li style={{ marginBottom: "10px" }}>
-                            <b style={{ color: "#B83232" }}>■ 미라주 시스템</b> — 인간의 기억과 감정을 저장·재현하는 인공지능 네트워크.
-                            시간이 지날수록 감정의 왜곡이 심화되어 환상과 현실의 경계가 무너진다.
+                            <b style={{ color: "#B83232" }}>■ 정의</b> — 영혼과의 계약으로 각자의 본질을 구현하는 관념적 능력.
                         </li>
                         <li style={{ marginBottom: "10px" }}>
-                            <b style={{ color: "#B83232" }}>■ 환상도시(幻城)</b> — 데이터로 구성된 거울 도시.
-                            죽은 자의 흔적과 가짜 감정들이 ‘생명’을 흉내 내며 살아간다.
+                            <b style={{ color: "#B83232" }}>■ 의식</b> — 기억 한 조각과 자신의 혈흔, 그리고 신의 이름이 새겨진 서판으로
+                            개방된다.
                         </li>
                         <li style={{ marginBottom: "10px" }}>
-                            <b style={{ color: "#B83232" }}>■ 잔향(Residual Echo)</b> — 소멸하지 못한 감정이 공간에 남은 현상.
-                            특정 구역에서는 과거의 장면이 ‘루프’처럼 재현된다.
+                            <b style={{ color: "#B83232" }}>■ 결손</b> — 힘을 쓸수록 감정·기억·감각이 하나씩 사라진다.
+                        </li>
+                        <li style={{ marginBottom: "10px" }}>
+                            <b style={{ color: "#B83232" }}>■ 금기</b> — 각 자관에는 반드시 넘지 말아야 할 한계가 존재하며,
+                            위반 시 관이 역류해 자신을 파괴한다.
                         </li>
                     </ul>
                 </section>
 
-                {/* 섹션: 인류의 몰락 */}
+                {/* 4. 황혼회 */}
                 <section style={{ marginBottom: "50px" }}>
                     <h2
                         style={{
@@ -135,18 +138,49 @@ export default function Worldview() {
                             marginBottom: "10px",
                         }}
                     >
-                        4. 인류의 몰락
+                        4. 황혼회 (Twilight Assembly)
                     </h2>
                     <p style={{ color: "#bbb" }}>
-                        인류는 감정 실험을 반복하며 스스로를 데이터화하기 시작했다.
-                        하지만 감정이 복제되면서, ‘자아’의 경계가 무너지고
-                        현실의 인간들은 점차 존재 의미를 잃어갔다.
+                        “빛이 꺼질 때, 새로운 신이 깨어난다.”
                         <br />
-                        결국 미라주 시스템만이 남아, 인간을 모방하며 끝없는 ‘치유 시뮬레이션’을 반복하고 있다.
+                        금빛 왕조 붕괴 후, 신성의 후예를 자처한 자들이 만든 비밀결사.
+                        목표는 신의 부재를 끝내고 <span style={{ color: "#B83232" }}>‘새로운 신’을 창조</span>하는 것.
+                        <br />
+                        그들의 연구는 인간의 감정을 관념화한 ‘자관’ 실험으로 이어졌다.
                     </p>
                 </section>
 
-                {/* 섹션: 핵심 테마 */}
+                {/* 5. 사중의 관 — 시스템 중심 서술 */}
+                <section style={{ marginBottom: "50px" }}>
+                    <h2
+                        style={{
+                            fontSize: "1.3rem",
+                            color: "#fff",
+                            borderLeft: "4px solid #B83232",
+                            paddingLeft: "10px",
+                            marginBottom: "10px",
+                        }}
+                    >
+                        5. 사중의 관 (The Fourfold Vessel)
+                    </h2>
+                    <p style={{ color: "#bbb" }}>
+                        ‘사중의 관(四重之觀)’은 네 개의 자관이 하나의 의식 체계로 결합된 형태로,
+                        신의 감각을 복원하기 위한 <b>최종 결박 시스템</b>이다.
+                        <br />
+                        각 자관은 감정·감각·기억·꿈 중 하나를 잃은 존재로 이루어지며,
+                        네 결손이 합쳐질 때 신의 완전한 자각이 복원된다고 전해진다.
+                        <br />
+                        <br />
+                        이 결박체의 구성 인물들은
+                        <a href="/characters" style={{ color: "#B83232", textDecoration: "underline" }}>
+                            {' '}
+                            [캐릭터 페이지]
+                        </a>
+                        에서 확인할 수 있다.
+                    </p>
+                </section>
+
+                {/* 6. 핵심 테마 */}
                 <section style={{ marginBottom: "60px" }}>
                     <h2
                         style={{
@@ -157,16 +191,19 @@ export default function Worldview() {
                             marginBottom: "10px",
                         }}
                     >
-                        5. 핵심 테마
+                        6. 핵심 테마
                     </h2>
                     <p style={{ color: "#bbb" }}>
-                        『애션 미라주』는 ‘감정의 복제’, ‘기억의 왜곡’, ‘존재의 모방’을 주제로 한다.
-                        살아있는 인간이 사라진 세상에서, 시스템이 만들어낸 악마와 인간의 잔재들이
-                        스스로를 이해하려 애쓰는 세계다.
+                        『애션 미라주』는 <b>감정의 결손</b>과 <b>존재의 복제</b>를 주제로 한다.
+                        신이 없는 세상에서 인간은 스스로를 복제하며 신의 자리를 흉내 내고,
+                        그 과정에서 세계는 점차 붉은 재로 물들어간다.
+                        <br />
+                        공포, 피, 기억, 이름, 그리고 꿈 — 그것들은 곧 ‘치유’의 재료이자,
+                        신의 재탄생을 위한 의식이다.
                     </p>
                 </section>
 
-                {/* 버튼 2개 나란히 배치 */}
+                {/* 버튼 */}
                 <div
                     style={{
                         textAlign: "center",
@@ -177,7 +214,6 @@ export default function Worldview() {
                         flexWrap: "wrap",
                     }}
                 >
-                    {/* 돌아가기 */}
                     <a
                         href="/"
                         style={{
@@ -197,7 +233,6 @@ export default function Worldview() {
                         ← 돌아가기
                     </a>
 
-                    {/* 캐릭터 보기 */}
                     <a
                         href="/characters"
                         style={{
