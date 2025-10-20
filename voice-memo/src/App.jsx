@@ -6,8 +6,8 @@ export default function App() {
   const [transcript, setTranscript] = useState("");
   const [memos, setMemos] = useState([]);
 
-  // 브라우저 음성인식
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const SpeechRecognition =
+    window.SpeechRecognition || window.webkitSpeechRecognition;
   const recognition = new SpeechRecognition();
 
   recognition.lang = "ko-KR";
@@ -40,7 +40,17 @@ export default function App() {
 
   const handleSave = () => {
     if (!transcript.trim()) return;
-    const newMemo = { id: Date.now(), text: transcript, date: new Date().toLocaleString() };
+
+    // 해시태그 자동 추출
+    const tags = transcript.match(/#\w+/g) || [];
+
+    const newMemo = {
+      id: Date.now(),
+      text: transcript,
+      date: new Date().toISOString(),
+      tags: tags.map(tag => tag.replace("#", "")), // '#' 제거
+    };
+
     const updated = [newMemo, ...memos];
     setMemos(updated);
     localStorage.setItem("memos", JSON.stringify(updated));
@@ -67,11 +77,17 @@ export default function App() {
 
       <div className="flex justify-center gap-3 mb-6">
         {!listening ? (
-          <button onClick={handleStart} className="btn btn-green">시작</button>
+          <button onClick={handleStart} className="btn btn-green">
+            시작
+          </button>
         ) : (
-          <button onClick={handleStop} className="btn btn-red">중지</button>
+          <button onClick={handleStop} className="btn btn-red">
+            중지
+          </button>
         )}
-        <button onClick={handleSave} className="btn btn-blue">저장</button>
+        <button onClick={handleSave} className="btn btn-blue">
+          저장
+        </button>
       </div>
 
       <MemoList memos={memos} setMemos={setMemos} />
