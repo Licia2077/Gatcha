@@ -1,0 +1,295 @@
+/* ===================== 기본 세팅 ===================== */
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Gowun Dodum', sans-serif;
+  background: #000;
+  color: white;
+  overflow: hidden;
+}
+
+/* ===================== 배경 ===================== */
+.vn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh;
+  background-size: 200% 200%;
+  animation: bgFlow 10s ease-in-out infinite alternate;
+  transition: background 0.8s;
+}
+
+@keyframes bgFlow {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+/* ===================== 캐릭터 초상화 ===================== */
+/* ===================== 캐릭터 초상화 ===================== */
+.vn-portraits {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  gap: 16%;
+  z-index: 1;
+  /* 배경보다 위, 대화창보다 아래 */
+}
+
+.vn-portrait {
+  max-width: 25vw;
+  max-height: 75vh;
+  object-fit: contain;
+  opacity: 0.35;
+  transition: 0.6s ease;
+  filter: grayscale(70%);
+}
+
+.vn-portrait.left {
+  transform: translateX(-8%);
+}
+
+.vn-portrait.right {
+  transform: translateX(8%);
+}
+
+.vn-portrait.active {
+  opacity: 1;
+  filter: brightness(1.15) drop-shadow(0 0 25px rgba(255, 255, 255, 0.4));
+  transform: scale(1.03);
+  z-index: 2;
+}
+
+/* ===================== 대화창 (캐릭터보다 위로) ===================== */
+.vn-dialogue-box {
+  position: relative;
+  z-index: 5;
+  /* 캐릭터보다 위에 오도록 조정 */
+  width: 80%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 5vh;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* ===================== 이름 / 메뉴 ===================== */
+.vn-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.vn-name {
+  color: #ffb6ff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.vn-menu button {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  margin-left: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.vn-menu button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* ===================== 대사 텍스트 ===================== */
+.vn-text {
+  min-height: 60px;
+  white-space: pre-line;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.cursor {
+  opacity: 0.7;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===================== 선택지 ===================== */
+.vn-choices {
+  margin-top: 16px;
+}
+
+.vn-choices button {
+  background: linear-gradient(90deg, #ff66ff, #9966ff);
+  border: none;
+  color: white;
+  margin: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.vn-choices button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* ===================== 호감도 ===================== */
+.vn-affinity {
+  font-size: 0.9rem;
+  margin-top: 12px;
+  opacity: 0.8;
+  color: #ddd;
+}
+
+/* ===================== 세이브/로드 메뉴 ===================== */
+.vn-menu-window {
+  position: absolute;
+  right: 5%;
+  bottom: 25%;
+  background: rgba(0, 0, 0, 0.85);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  width: 240px;
+}
+
+.vn-menu-window h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #ffccff;
+}
+
+.vn-slot {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  align-items: center;
+}
+
+.vn-slot span {
+  font-size: 0.9rem;
+}
+
+.vn-slot button {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.2s;
+}
+
+.vn-slot button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===================== 갤러리 ===================== */
+.vn-gallery {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.vn-gallery h2 {
+  font-size: 1.5rem;
+  color: #ffb6ff;
+  margin-bottom: 20px;
+}
+
+.vn-gallery-grid {
+  display: flex;
+  gap: 25px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vn-gallery-item {
+  padding: 22px 35px;
+  border: 1px solid white;
+  border-radius: 12px;
+  opacity: 0.6;
+  font-size: 0.95rem;
+  transition: 0.2s;
+}
+
+.vn-gallery-item.unlocked {
+  opacity: 1;
+  border-color: #ff66ff;
+  box-shadow: 0 0 12px #ff66ff;
+  color: #ffb6ff;
+}
+
+.vn-gallery button {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  margin-top: 20px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.vn-gallery button:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ===================== 반응형 (태블릿/모바일 대응) ===================== */
+@media (max-width: 768px) {
+  .vn-dialogue-box {
+    width: 90%;
+    font-size: 0.9rem;
+  }
+
+  .vn-portrait {
+    max-width: 38vw;
+    max-height: 55vh;
+  }
+
+  .vn-menu-window {
+    width: 200px;
+    bottom: 20%;
+  }
+
+  .vn-gallery-grid {
+    flex-direction: column;
+  }
+}
