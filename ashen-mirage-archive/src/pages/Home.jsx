@@ -105,7 +105,7 @@ export default function Home() {
                 {/* 🔥 본문 글씨 확대 */}
                 <p
                     style={{
-                        fontSize: "1.2rem",
+                        fontSize: "1.1rem",
                         color: "#ccc",
                         lineHeight: "2",
                         marginBottom: "50px",
