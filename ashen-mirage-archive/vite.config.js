@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/",  // 절대경로 유지
+  base: "./", // ✅ 반드시 ./ 로 지정해야 JS 경로가 깨지지 않음
   build: {
     outDir: "dist",
   },
