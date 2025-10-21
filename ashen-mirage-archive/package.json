@@ -2,14 +2,17 @@
   "name": "ashen-mirage-archive",
   "version": "1.0.0",
   "private": true,
+  "description": "『애션 미라주』 — 인류의 기억 데이터를 기반으로 복원된 환상 세계 아카이브.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vite preview --port 4173"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.27.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.0",
@@ -17,10 +20,17 @@
   },
   "keywords": [
     "ashenmira",
-    "vite",
+    "ashenmira-archive",
     "react",
+    "vite",
     "visual-novel",
-    "archive"
+    "worldbuilding",
+    "spa",
+    "vercel"
   ],
-  "license": "MIT"
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "author": "Licia2077"
 }
