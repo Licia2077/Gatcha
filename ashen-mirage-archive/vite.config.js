@@ -1,10 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+// ✅ 배포용 설정 제거, 원본 Vite 기본 설정
 export default defineConfig({
   plugins: [react()],
-  base: "./", // ✅ 반드시 ./ 로 지정해야 JS 경로가 깨지지 않음
-  build: {
-    outDir: "dist",
-  },
 });
