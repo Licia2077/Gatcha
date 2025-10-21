@@ -67,7 +67,7 @@ export default function Home() {
                 {/* 🔥 시그니처 타이틀 확대 */}
                 <h1
                     style={{
-                        fontSize: "2.4rem", // 크게 확대
+                        fontSize: "2.0rem", // 크게 확대
                         color: "#B83232",
                         fontWeight: "800",
                         letterSpacing: "2px",
