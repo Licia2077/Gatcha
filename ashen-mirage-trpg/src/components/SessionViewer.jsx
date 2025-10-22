@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function SessionViewer({ session, onChoose }) {
+export default function SessionViewer({ session, onChoose, isEnding = false }) {
     const [displayedText, setDisplayedText] = useState("");
     const [charIndex, setCharIndex] = useState(0);
 
@@ -13,21 +13,30 @@ export default function SessionViewer({ session, onChoose }) {
     // 내레이션 전체를 하나의 문자열로 합침
     const fullText = session?.narration?.join("\n") || "";
 
-    // 타자기 애니메이션 (70ms/글자)
+    // 속도 분기: 엔딩이면 120ms, 아니면 70ms
+    const typingSpeed = isEnding ? 120 : 70;
+
+    // 타자기 애니메이션
     useEffect(() => {
         if (!fullText) return;
         if (charIndex < fullText.length) {
             const timeout = setTimeout(() => {
                 setDisplayedText((prev) => prev + fullText[charIndex]);
                 setCharIndex((i) => i + 1);
-            }, 70); // ← 속도 70ms
+            }, typingSpeed);
             return () => clearTimeout(timeout);
         }
-    }, [charIndex, fullText]);
+    }, [charIndex, fullText, typingSpeed]);
 
     return (
-        <div className="p-8 bg-gray-800/80 backdrop-blur-md rounded-2xl shadow-2xl border border-yellow-700 fade-in">
-            <h2 className="text-2xl font-bold mb-6 text-yellow-400 font-serif tracking-widest">
+        <div
+            className={`p-8 bg-gray-800/80 backdrop-blur-md rounded-2xl shadow-2xl 
+                  border ${isEnding ? "border-red-600" : "border-yellow-700"} fade-in`}
+        >
+            <h2
+                className={`text-2xl font-bold mb-6 font-serif tracking-widest 
+                   ${isEnding ? "text-red-400" : "text-yellow-400"}`}
+            >
                 {session.name}
             </h2>
 
@@ -35,12 +44,14 @@ export default function SessionViewer({ session, onChoose }) {
             <div className="text-gray-200 font-serif leading-relaxed whitespace-pre-line min-h-[200px]">
                 {displayedText}
                 {charIndex < fullText.length && (
-                    <span className="text-yellow-500 animate-pulse">▮</span>
+                    <span className={`${isEnding ? "text-red-500" : "text-yellow-500"} animate-pulse`}>
+                        ▮
+                    </span>
                 )}
             </div>
 
-            {/* 선택지는 텍스트가 다 나오고 나서만 표시 */}
-            {charIndex === fullText.length && (
+            {/* 선택지는 엔딩이 아닐 때만 표시 */}
+            {!isEnding && charIndex === fullText.length && (
                 <div className="mt-8 space-y-4">
                     {session.options.map((opt, idx) => (
                         <button

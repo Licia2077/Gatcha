@@ -1,0 +1,235 @@
+/* 전체 레이아웃 */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #c3cfe2, #f5f7fa);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 메인 컨테이너 */
+#root {
+  width: 100%;
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 30px;
+}
+
+/* 카드 박스 공통 */
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 28px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 30px;
+  /* 카드 간격 */
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+/* 제목 스타일 */
+h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #4a4a8a;
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* 입력 + 버튼 박스 */
+.memo-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 입력창 */
+textarea {
+  width: 100%;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  resize: none;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  min-height: 120px;
+}
+
+textarea:focus {
+  border-color: #7f5af0;
+  box-shadow: 0 0 0 4px rgba(127, 90, 240, 0.25);
+}
+
+/* 버튼 */
+button {
+  align-self: flex-end;
+  /* 메모창 아래 오른쪽 정렬 */
+  width: auto;
+  /* 텍스트 크기만큼 */
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  background: linear-gradient(135deg, #7f5af0, #ef4565);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(127, 90, 240, 0.35);
+}
+
+/* ────────────────────────────── */
+/* 📜 타임라인 */
+/* ────────────────────────────── */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.timeline-date {
+  flex-shrink: 0;
+  background: #7f5af0;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(127, 90, 240, 0.35);
+  min-width: 100px;
+  text-align: center;
+}
+
+.timeline-card {
+  flex-grow: 1;
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.timeline-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+}
+
+.timeline-text {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.timeline-tags {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #7f5af0;
+  font-weight: 600;
+}
+
+/* ────────────────────────────── */
+/* 📅 react-calendar 커스터마이징 */
+/* ────────────────────────────── */
+
+.react-calendar {
+  width: 100%;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  color: #222;
+  font-size: 1.05rem;
+  font-family: inherit;
+}
+
+.react-calendar__month-view__weekdays {
+  text-align: center;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.react-calendar__tile {
+  color: #222;
+  padding: 15px !important;
+  border-radius: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.react-calendar__tile--now {
+  background: #f3e8ff;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #000 !important;
+}
+
+.react-calendar__tile--active {
+  background: #7f5af0 !important;
+  color: #fff !important;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.highlight-day {
+  background: #d6bcfa !important;
+  color: #000 !important;
+  border-radius: 50%;
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(127, 90, 240, 0.4);
+}
+
+.react-calendar__tile:hover {
+  background: #f0f0ff;
+}
+
+/* 주말 색상 */
+.react-calendar__month-view__weekdays__weekday:nth-child(1) abbr,
+.react-calendar__month-view__weekdays__weekday:nth-child(7) abbr {
+  color: #e63946 !important;
+}
+
+.react-calendar__month-view__days__day:nth-child(7n+1),
+.react-calendar__month-view__days__day:nth-child(7n) {
+  color: #e63946 !important;
+  font-weight: bold;
+}
