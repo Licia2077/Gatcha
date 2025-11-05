@@ -1,36 +1,117 @@
+/* 🌈 전체 바디 */
 body {
     font-family: "Segoe UI", sans-serif;
-    background: linear-gradient(135deg, #f0f0f0, #dbeafe);
+    background: linear-gradient(135deg, #f0f4ff, #dbeafe);
     margin: 0;
     padding: 0;
-}
-
-.app {
-    max-width: 700px;
-    margin: auto;
-    padding: 20px;
     color: #111827;
+    text-align: center;
+    line-height: 1.6;
+    overflow: hidden;
+    /* ✅ 스크롤 제거 */
 }
 
+/* 🔧 앱 전체 레이아웃 */
+.app {
+    display: block;
+    min-height: 100vh;
+    padding-top: 10px;
+    /* 위쪽 여백 살짝 줄임 */
+}
+
+.app.dark {
+    background: linear-gradient(135deg, #111827, #1f2937);
+    color: #f9fafb;
+}
+
+/* 🧭 상단 제목 */
+h1.app-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    /* 🔽 위쪽 여백 줄임 */
+    margin-bottom: 15px;
+    /* 🔽 아래쪽 여백 크게 줄임 */
+    color: #2563eb;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app.dark h1.app-title {
+    color: #93c5fd;
+    text-shadow: 0 0 10px rgba(147, 197, 253, 0.3);
+}
+
+/* 🌐 컨테이너 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    /* 상단 여백 제거 */
+    padding: 10px;
+    /* 내부 패딩도 조금 줄임 */
+    text-align: center;
+}
+
+/* 🔝 상단바 */
 .topbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
 }
 
+.menu-btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+}
+
+/* 🪄 섹션 카드 */
 .section {
     background: white;
-    padding: 15px;
-    margin: 15px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px 0;
+    /* 🔽 카드 간격 축소 */
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.app.dark .section {
+    background: #1f2937;
+    color: #e5e7eb;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* ✨ 섹션 제목 */
+.section h2,
+.section .title {
+    font-size: 21px;
+    margin-bottom: 10px;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+.app.dark .section h2,
+.app.dark .section .title {
+    color: #93c5fd;
+}
+
+/* 🎛 버튼 공통 */
 button {
-    margin: 6px;
-    padding: 12px 18px;
+    margin: 5px;
+    padding: 10px 16px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -38,19 +119,37 @@ button {
     background: linear-gradient(135deg, #60a5fa, #2563eb);
     transition: all 0.2s ease;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
 }
 
-/* 버튼 효과 */
 button:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+/* 💧 버튼 클릭 리플 */
+button::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s, opacity 0.8s;
+    opacity: 0;
 }
 
+button:active::after {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 1;
+    transition: 0s;
+}
+
+/* ✅ 색상별 버튼 */
 button.start {
     background: #10b981;
 }
@@ -67,58 +166,39 @@ button.danger:hover {
     background: #dc2626;
 }
 
-/* 팝업 오버레이 */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+/* 🔘 버튼 그룹 정렬 */
+.button-group {
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
 }
 
-/* 팝업 박스 */
-.popup {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    width: 300px;
-    max-height: 80vh;
-    overflow-y: auto;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s ease, color 0.3s ease;
+/* ✏ 입력창 */
+input[type="text"],
+textarea {
+    width: 80%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    font-size: 15px;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: all 0.2s;
 }
 
-.close-btn {
-    float: right;
-    background: none;
-    border: none;
-    font-size: 18px;
-    cursor: pointer;
+input[type="text"]:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
 }
 
-/* 🌙 다크모드 */
-.app.dark {
-    background: linear-gradient(135deg, #1f2937, #111827);
-    color: #f9fafb;
+/* 📨 게시판 등록 버튼 */
+button.submit {
+    background: #3b82f6;
+    margin-top: 10px;
 }
 
-.app.dark .section {
-    background: #1f2937;
-    color: #f9fafb;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.app.dark .popup {
-    background: #1f2937;
-    color: #f9fafb;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-}
-
-.app.dark button {
-    background: linear-gradient(135deg, #10b981, #059669);
-    color: #f9fafb;
+button.submit:hover {
+    background: #2563eb;
 }

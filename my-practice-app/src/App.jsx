@@ -23,7 +23,7 @@ function App() {
     return (
         <div className={dark ? "app dark" : "app"}>
             <div className="topbar">
-                <h1>연습용 앱</h1>
+                <h1 className="app-title">연습용 앱</h1>
                 <div>
                     <button onClick={() => setDark(!dark)}>
                         {dark ? "☀ 라이트모드" : "🌙 다크모드"}
